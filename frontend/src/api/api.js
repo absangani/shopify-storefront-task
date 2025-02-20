@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:4000/graphql"; // Update API URL if needed
+const API_URL = "https://shopify-storefront-task.onrender.com/graphql"; // Update API URL if needed
 
 export const fetchProducts = async (search = "", sort = "TITLE-ASC", after = null) => {
   try {
