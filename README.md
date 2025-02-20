@@ -1,68 +1,113 @@
-# Shopify Product Listing App  
+Here’s your updated `README.md` file based on your deployment setup and requirements:  
 
-## Overview  
-The Shopify Product Listing App is a storefront application that allows merchants to view, search, and sort products from their Shopify store. It is built using React.js for the frontend and Node.js with Express.js for the backend. The app integrates with Shopify’s GraphQL API to fetch product data dynamically.  
+---
 
-## Features  
-- Search for products by title  
-- Sort products by title and price (ascending/descending)  
-- Display product details, including title, description, image, price, and availability  
-- Paginated product listing for better performance  
+# **Shopify Storefront Task**  
 
-## Live Demo  
-**Deployed Link**: [Your Hosted App URL]  
+## **Live Application**  
+🔗 **Live URL:** [Shopify Storefront Task](https://shopify-storefront-task.onrender.com/)  
 
-## Installation & Setup  
+---
 
-### Clone the Repository  
+## **Project Overview**  
+This is a Shopify storefront built with **React (frontend)** and **Node.js (backend)**.  
+- The **frontend** is a React-based UI for displaying Shopify products.  
+- The **backend** is a Node.js server that serves the frontend as static files and handles API requests.  
+- **No database** is required for this project.  
+
+---
+
+## **Tech Stack**  
+- **Frontend:** React, Vite, Material UI  
+- **Backend:** Node.js, Express  
+- **Hosting:** Render (Free Tier)  
+
+---
+
+## **Setup Instructions**  
+
+### **1. Clone the Repository**  
 ```sh
-git clone https://github.com/your-username/shopify-product-listing.git
-cd shopify-product-listing
+git clone https://github.com/your-repo/shopify-storefront-task.git
+cd shopify-storefront-task
 ```
 
-### Install Dependencies  
+### **2. Install Backend Dependencies**  
 ```sh
-# Backend
 cd backend
 npm install
-
-# Frontend
-cd ../frontend
-npm install
 ```
 
-### Set Up Environment Variables  
-Create a `.env` file in the backend directory and add the following:  
-
-```
-SHOPIFY_API_KEY=your_api_key
-SHOPIFY_API_SECRET=your_api_secret
-SHOPIFY_APP_URL=https://your-app-url.com
-```
-
-### Start the Application  
+### **3. Build the Frontend**  
 ```sh
-# Run Backend
-cd backend
-npm start
-
-# Run Frontend
 cd frontend
-npm start
+npm install
+npm run build
+```
+This generates a `build` folder inside the `frontend` directory.
+
+### **4. Move Build Folder to Backend**  
+```sh
+mv frontend/build backend/build
 ```
 
-## Folder Structure  
+### **5. Start the Backend Server**  
+```sh
+cd backend
+node server.js
 ```
-/backend  # Node.js backend code
-/frontend # React frontend code
-/docs     # Documentation files (screenshots, API references)
+Server will run at `http://localhost:4000/`.
+
+---
+
+## **Deployment**  
+
+### **Backend Deployment on Render**  
+1. Push your code to **GitHub**.  
+2. Go to [Render](https://render.com/) and create a free account.  
+3. Click **New Web Service** → **Connect GitHub Repo**.  
+4. Set **Build Command:**  
+   ```sh
+   npm install && npm run build
+   ```  
+5. Set **Start Command:**  
+   ```sh
+   node server.js
+   ```  
+6. Deploy and get the live app URL.  
+
+---
+
+## **Project Structure**  
+```
+shopify-storefront-task/
+│── backend/  
+│   ├── build/  # Contains frontend build  
+│   ├── server.js  # Express server serving frontend & API  
+│   ├── package.json  
+│── frontend/  
+│   ├── src/  
+│   ├── public/  
+│   ├── package.json  
+│── README.md  
 ```
 
-## Technology Stack  
-- **Frontend**: React.js, Polaris UI  
-- **Backend**: Node.js, Express.js  
-- **Hosting**: Vercel (Frontend), AWS/DigitalOcean (Backend)  
-- **API**: Shopify GraphQL API  
+---
 
-## Screenshots  
-Include screenshots of the Shopify store running with product listings, search functionality, and sorting features.  
+## **Assumptions & Considerations**  
+- This app fetches products using Shopify's GraphQL API.  
+- No authentication is required for users.  
+- The frontend is statically served from the backend.  
+
+---
+
+## **Screenshots**  
+![Product List](./assets/screenshots/product_list.png)
+![Search](./assets/screenshots/Searching.png)
+![Sorting](./assets/screenshots/sorting.png)
+![Pagination](./assets/screenshots/pagination.png)
+
+---
+
+## **Contact & Support**  
+For any issues, create an issue in the repository or reach out via email.  
